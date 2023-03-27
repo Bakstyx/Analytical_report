@@ -9,8 +9,7 @@ import pandas as pd
 import dashboard_tables as dt
 import dashboard_graphs as dg
 
-#folder = './Results/Test_validation/Test_1/Test_1-2023-02-20/Compiler'
-folder = 'C:/Users/baks_/Documents/Bakstyx/Repositories/Statistical analysis/Results/Test_validation/Test_1/Test_1-2023-02-20/Compiler'
+folder = r'C:\Users\baks_\Documents\Bakstyx\Repositories\Analytical_report\Results\Test_validation\Test_1\Test_1-2023-02-20\Compiler'
 
 
 
