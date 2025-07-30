@@ -100,6 +100,14 @@ def filter_df_limits_viz(dataframe, selected, category, decision):
     df_data = filter_df_limits(dataframe, selected, category, decision)
     return df_data.to_dict("records")
 
+
+#layout config 
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
+
+
 #layout App
 app.layout = html.Div(style={#'backgroundColor': colors['background']
                                 }, 

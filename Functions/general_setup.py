@@ -2,7 +2,6 @@
 import os
 import glob
 from pathlib import Path
-
 import pandas as pd
 import numpy as np
 import warnings
@@ -11,16 +10,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 #Scripts
-import automatic_dict as ad
-import google_api
-import exception_handeler as eh
-import descriptive_statistics as ds
-import descript_stats_graphs as dsg
-import anova
-import anova_assumptions as aa
-import post_hoc_test as pht
-import anova_graphs as ag
-import limits_analysis as la
+import Functions.automatic_dict as ad
+#import google_api
+import Functions.exception_handeler as eh
+import Functions.descriptive_statistics as ds
+import Functions.descript_stats_graphs as dsg
+import Functions.anova
+import Functions.anova_assumptions as aa
+import Functions.post_hoc_test as pht
+import Functions.anova_graphs as ag
+import Functions.limits_analysis as la
+import Functions.dataset
 
 
 
@@ -60,17 +60,14 @@ def style2(dataframe, exclude=None):
     #Columns selector
     columns = [column for column in dataframe.columns 
             if column not in exclude]
-    
     #numers format
     dataframe[columns].replace(',', '.', regex=True, inplace=True)
-    
     #Datatype format
     for column in columns:
         try:
             dataframe[column] = pd.to_numeric(dataframe[column])
         except:
             dataframe[column] = dataframe[column].astype(str)
-    
     #date_time format flux
     print(dataframe.info())
     return dataframe

@@ -5,6 +5,16 @@ from itertools import combinations
 import pandas as pd
 import numpy as np
 
+### Script
+
+
+
+#### class
+class Descriptive():
+    
+    def __init__(self, data):
+        self.data = data
+    
 
 #Functions
 def descript_stats(data, dv, di, gral_description=None, param=None, percent=None, 
@@ -92,22 +102,4 @@ def stats_data_arrange(df, id_vars):
     return df
 
 
-def balanced_dataset(data, classifier):
-    duplicated = data.duplicated().unique().tolist()
-    data_count = data.groupby(by=classifier, group_keys=False, as_index=False).size()
-    data_samples = data_count['size'].unique().tolist()
-    if True in duplicated:
-        print("There is duplicated rows in the dataframe. Please check the data")
-    else:
-        print('No duplicated rows. Data is OK')
-    if len(data_samples)>1:
-        print(f'Unbalanced dataset for {classifier}. Please check data. Anovas aren´t prepare for unbalanced data.')
-        print(data_count)
-    else:
-        print('Dataset is balanced')
 
-def random_sampling(data, sampling_column, sample_size):
-    samples = data[sampling_column].unique().tolist()
-    sample_list = random.sample(samples, k=20)
-    sampled_data = data[data[sampling_column].isin(sample_list)]
-    return sampled_data
